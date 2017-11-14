@@ -6,13 +6,14 @@ from BFS.KB import *
 from sklearn import linear_model
 from keras.models import Sequential
 from keras.layers import Dense, Activation
+import os
 
-relation = sys.argv[1]
+relation = 'concept_agentbelongstoorganization'
 
-dataPath_ = '../NELL-995/tasks/' + relation
+dataPath_ = '/opt/project/NELL-995/tasks/' + relation
 featurePath = dataPath_ + '/path_to_use.txt'
 feature_stats = dataPath_ + '/path_stats.txt'
-relationId_path = '../NELL-995/relation2id.txt'
+relationId_path = '/opt/project/NELL-995/relation2id.txt'
 
 
 def train(kb, kb_inv, named_paths):
@@ -93,7 +94,7 @@ def get_features():
 def evaluate_logic():
     kb = KB()
     kb_inv = KB()
-
+    print(dataPath_ + '/graph.txt')
     f = open(dataPath_ + '/graph.txt')
     kb_lines = f.readlines()
     f.close()
@@ -257,4 +258,5 @@ def bfs_two(e1, e2, path, kb, kb_inv):
 
 
 if __name__ == '__main__':
+    print(os.getcwd())
     evaluate_logic()

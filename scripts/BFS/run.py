@@ -6,20 +6,21 @@ import sys
 
 
 def main():
-    if len(sys.argv) != 5:
-        print("Please use the following format: ./run dataFromKB entity1 entity2 number_of_diff_paths")
-        return
+
+    file = "full_data.txt"
+    entity1 = "/m/017dcd"
+    entity2 = "/m/0184jc"
+    num_paths = 5
+
     kb = KB()
-    with open(sys.argv[1], 'r') as f:
+    with open(file, 'r') as f:
         for line in f.readlines():
             ent1, rel, ent2 = extract(line.rstrip())
             rel_inv = rel + '_inv'
             kb.addRelation(ent1, rel, ent2)
             kb.addRelation(ent2, rel_inv, ent1)
     print('Finishing building')
-    entity1 = sys.argv[2]
-    entity2 = sys.argv[3]
-    num_intermediates = int(sys.argv[4])
+    num_intermediates = int(num_paths)
     intermediates = pickRandomIntermediatesFrom(kb, entity1, entity2, num_intermediates)
     res_entity_lists = []
     res_path_lists = []
