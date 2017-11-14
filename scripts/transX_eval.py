@@ -107,7 +107,7 @@ for idx, sample in enumerate(test_pairs):
 
 
 mean_ap = np.mean(aps)
-print 'TransX MAP: ', mean_ap
+print('TransX MAP: ', mean_ap)
 
 
 
