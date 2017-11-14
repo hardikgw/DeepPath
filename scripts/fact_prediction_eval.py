@@ -95,7 +95,7 @@ def get_features():
 
         if path not in stats:
             continue
-        elif max_freq > 1 and stats[path] < 2:
+        elif list(max_freq).__len__() > 1 and str(stats[path]).__len__() < 2: # workaround for py 3 uncertain of logic !!
             continue
 
         length = len(path.split(' -> '))
