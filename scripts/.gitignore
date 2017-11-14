@@ -1,2 +1,2 @@
 NEll-995
-*.pyc
+__pycache__
