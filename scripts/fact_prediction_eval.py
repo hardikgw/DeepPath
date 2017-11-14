@@ -4,15 +4,15 @@ import numpy as np
 import sys
 from BFS.KB import *
 
-relation = sys.argv[1]
+relation = 'concept_agentbelongstoorganization'
 
-dataPath_ = '../NELL-995/tasks/' + relation
+dataPath_ = '/opt/project/NELL-995/tasks/' + relation
 featurePath = dataPath_ + '/path_to_use.txt'
 feature_stats = dataPath_ + '/path_stats.txt'
-relationId_path = '../NELL-995/' + 'relation2id.txt'
-ent_id_path = '../NELL-995/' + 'entity2id.txt'
-rel_id_path = '../NELL-995/' + 'relation2id.txt'
-test_data_path = '../NELL-995/tasks/' + relation + '/sort_test.pairs'
+relationId_path = '/opt/project/NELL-995/' + 'relation2id.txt'
+ent_id_path = '/opt/project/NELL-995/' + 'entity2id.txt'
+rel_id_path = '/opt/project/NELL-995/' + 'relation2id.txt'
+test_data_path = '/opt/project/NELL-995/tasks/' + relation + '/sort_test.pairs'
 
 
 def bfs_two(e1, e2, path, kb, kb_inv):

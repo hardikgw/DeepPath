@@ -3,7 +3,7 @@ class KB(object):
         self.entities = {}
 
     def addRelation(self, entity1, relation, entity2):
-        if self.entities.has_key(entity1):
+        if self.entities.keys().__contains__(entity1):
             self.entities[entity1].append(Path(relation, entity2))
         else:
             self.entities[entity1] = [Path(relation, entity2)]
