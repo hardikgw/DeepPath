@@ -3,13 +3,13 @@
 import sys
 import numpy as np
 
-relation = sys.argv[1]
+relation = 'concept_agentbelongstoorganization'
 
-dataPath_ = '../NELL-995/tasks/' + relation
+dataPath_ = '/opt/project/NELL-995/tasks/' + relation
 
-ent_id_path = '../NELL-995/' + 'entity2id.txt'
-rel_id_path = '../NELL-995/' + 'relation2id.txt'
-test_data_path = '../NELL-995/tasks/' + relation + '/sort_test.pairs'
+ent_id_path = '/opt/project/NELL-995/' + 'entity2id.txt'
+rel_id_path = '/opt/project/NELL-995/' + 'relation2id.txt'
+test_data_path = '/opt/project/NELL-995/tasks/' + relation + '/sort_test.pairs'
 
 f1 = open(ent_id_path)
 f2 = open(rel_id_path)
@@ -74,11 +74,11 @@ for idx, sample in enumerate(test_pairs):
     else:
         query = sample[0]
         count = zip(y_score, y_true)
-        count.sort(key=lambda x: x[0], reverse=True)
+        # count.sort(key=lambda x: x[0], reverse=True)
         # print count
         ranks = []
         correct = 0
-        for idx_, item in enumerate(count):
+        for idx_, item in enumerate(sorted(count)):
             if item[1] == 1:
                 correct += 1
                 ranks.append(correct / (1.0 + idx_))
